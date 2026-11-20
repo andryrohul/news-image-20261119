@@ -120,7 +120,7 @@ def main():
 
     # ---------- stats row: 8 boxes ----------
     stats = [
-        ("3", "presidents, one table: US, China, Russia"),
+        ("3", "one table: US, China, Russia"),
         ("$81.3bn", "raised by Anthropic, a record IPO"),
         ("13 yrs", "between GTA V and GTA VI"),
         ("730,000+", "Rohingya fled Myanmar in 2017"),
@@ -129,23 +129,23 @@ def main():
         ("4.9%", "Australian jobless, 5-year high"),
         ("48 hrs", "left at COP31 in Antalya"),
     ]
-    sy, sh = 108, 46
+    sy, sh = 108, 44
     sw = CW / 8
     for i, (big, small) in enumerate(stats):
         x = M + i * sw
         if i:
             d.line([(x, sy + 3), (x, sy + sh - 3)], fill=LGREY, width=1)
-        d.text((x + 5, sy + 2), big, font=SANS_B(13), fill=RED)
-        para(d, x + 5, sy + 20, sw - 9, small, SANS(7.5), GREY, leading=9)
+        d.text((x + 5, sy + 2), big, font=SANS_B(17), fill=RED)
+        para(d, x + 5, sy + 21, sw - 9, small, SANS(10), GREY, leading=11)
     hline(d, M, sy + sh, W - M, 1)
-    d.text((M, sy + sh + 4), "30 STORIES FROM 6 REGIONS   ●  ASIA-PACIFIC 12   "
-           "●  EUROPE 6   ●  MIDDLE EAST 4   ●  AMERICAS 5   ●  AFRICA 2   "
-           "●  WORLDWIDE 1", font=SANS_B(8), fill=INK)
+    d.text((M, sy + sh + 4), "25 STORIES FROM 6 REGIONS   ●  ASIA-PACIFIC 8   "
+           "●  EUROPE 6   ●  MIDDLE EAST 4   ●  AMERICAS 5   ●  AFRICA 1   "
+           "●  WORLDWIDE 1", font=SANS_B(10), fill=INK)
 
     # ---------- the day by hours ----------
-    hy = 172
-    d.text((M, hy), "THE DAY BY HOURS", font=SANS_B(9), fill=INK)
-    d.text((M + 108, hy), "local time, in order", font=SERIF_I(8), fill=GREY)
+    hy = 170
+    d.text((M, hy), "THE DAY BY HOURS", font=SANS_B(10), fill=INK)
+    d.text((M + 118, hy), "local time, in order", font=SERIF_I(9), fill=GREY)
     hours = [
         ("00:00", "AUCKLAND", "GTA VI unlocks"),
         ("08:40", "SEOUL", "exam begins"),
@@ -158,23 +158,22 @@ def main():
     hx = M
     hw = CW / 7
     for t, city, what in hours:
-        d.text((hx, hy + 13), t, font=SANS_B(9), fill=RED)
-        d.text((hx + 34, hy + 13), city, font=SANS_B(8), fill=INK)
-        d.text((hx, hy + 24), what, font=SANS(8), fill=GREY)
+        d.text((hx, hy + 14), t, font=SANS_B(10), fill=RED)
+        d.text((hx + 38, hy + 14), city, font=SANS_B(10), fill=INK)
+        d.text((hx, hy + 27), what, font=SANS(10), fill=GREY)
         hx += hw
-    hline(d, M, hy + 36, W - M, 1)
+    hline(d, M, hy + 40, W - M, 1)
 
     # ---------- lead cards ----------
-    ly, lh = 220, 212
+    ly, lh = 214, 196
     lw = (CW - 12) / 3
     leads = [
         ("1", "APEC 2026 · SHENZHEN", "SHENZHEN · SUMMIT",
          "Trump, Xi and Putin sit down together for the first time",
          "The leaders of the US, China and Russia met beside the APEC "
-         "summit, with nuclear arms and Iran on the agenda. The White "
-         "House had expected no deal, and by evening no joint statement "
-         "had been issued. Earlier, Trump and Putin spoke alone for "
-         "about 40 minutes, mostly on Ukraine. Kyiv was not in the room.",
+         "summit, with nuclear arms and Iran on the agenda. No joint "
+         "statement came by evening. Earlier, Trump and Putin spoke "
+         "alone for about 40 minutes, mostly on Ukraine.",
          "REPORTED", GREEN),
         ("2", "VI — OUT NOW", "WORLDWIDE · GAMES",
          "GTA VI is out, 13 years after the last one",
@@ -204,15 +203,15 @@ def main():
             draw_ant(d, ix, iy, iw, ih)
         # banner strip over illustration bottom
         d.rectangle([x + 1, iy + ih - 15, x + lw - 1, iy + ih], fill=NAVY)
-        d.text((x + 6, iy + ih - 13), banner, font=SANS_B(9),
+        d.text((x + 6, iy + ih - 13), banner, font=SANS_B(10),
                fill=(255, 255, 255))
         num_badge(d, x - 4, ly - 8, num)
         ty = iy + ih + 5
-        d.text((x + 6, ty), kicker, font=SANS_B(8), fill=GREY)
+        d.text((x + 6, ty), kicker, font=SANS_B(9), fill=GREY)
         tag(d, x + lw - 52, ty, lbl, lblc)
         ty += 14
-        ty = para(d, x + 6, ty, lw - 12, head, SERIF(15), INK, leading=18)
-        para(d, x + 6, ty + 3, lw - 12, body, SANS(8.5), INK, leading=11)
+        ty = para(d, x + 6, ty, lw - 12, head, SERIF(17), INK, leading=20)
+        para(d, x + 6, ty + 3, lw - 12, body, SANS(10), INK, leading=12.5)
 
     return img, d, M, CW
 
@@ -306,68 +305,67 @@ def mini_cards(d, M, CW, y0):
     """12 numbered mini-cards, 4 per row x 3 rows."""
     minis = [
         ("THE HAGUE · LAW", "World Court: Myanmar committed genocide",
-         "Judges ruled 9-6 that Myanmar meant to destroy the Rohingya. "
-         "About 10,000 were killed, they said. No appeal.",
+         "Ruled 9-6: Myanmar meant to destroy the Rohingya. About 10,000 "
+         "killed. No appeal.",
          "REPORTED", GREEN, "scales"),
         ("ANTALYA · CLIMATE", "COP31 enters its last 48 hours",
          "Ministers take over. A fossil-fuel phase-out and $120bn a year "
-         "for adaptation are in the draft, not yet agreed.",
+         "are in the draft.",
          "FORECAST", ORANGE, "globe"),
         ("ODISHA · STORM", "Cyclone Akvan: 204,070 listed to move",
-         "204,070 are listed for evacuation and 11 districts are on red "
-         "alert. Landfall is forecast for Friday.",
+         "204,070 listed for evacuation; 11 districts on red alert. "
+         "Landfall due Friday.",
          "FORECAST", ORANGE, "spiral"),
         ("CRIMEA · WAR", "Crimean Bridge hit for third time in a week",
-         "The rail section was targeted overnight and traffic was halted, "
-         "the Russian-installed governor said.",
+         "The rail section was hit overnight and traffic halted, the "
+         "governor said.",
          "REPORTED", GREEN, "bridge"),
         ("GAZA · CEASEFIRE", "Israel says its Gaza tank raid is over",
-         "The army said its push past the Yellow Line, begun on "
-         "Wednesday, is complete and residents may return.",
+         "The push past the Yellow Line is complete; residents may return, "
+         "the army said.",
          "CLAIM", GOLD, "tank"),
         ("RIYADH · GULF", "Houthi missile shot down over Riyadh",
-         "Sirens at 04:42; debris caused damage, the Saudi-led coalition "
-         "said. A Houthi claim of airport hits is unverified.",
+         "Sirens at 04:42; debris caused damage. An airport-hit claim is "
+         "unverified.",
          "CLAIM", GOLD, "missile"),
         ("FLORIDA · WEATHER", "Floods shut South Florida schools again",
-         "Up to 15.3 inches fell in a day this week. Broward closed "
-         "schools a second day; more rain is forecast.",
+         "Up to 15.3 inches fell in a day. Broward closed schools; more "
+         "rain forecast.",
          "FORECAST", ORANGE, "flood"),
         ("SEOUL · EDUCATION", "551,864 sit South Korea's big exam",
-         "Flights paused for 35 minutes for the listening test. A 100m-won "
-         "reward targets AI cheating.",
+         "Flights paused 35 minutes for listening. A 100m-won reward "
+         "targets AI cheating.",
          "REPORTED", GREEN, "exam"),
         ("PARIS · POLITICS", "French left splits over Mélenchon pact",
-         "Socialist chief Olivier Faure regrets the Greens' coalition "
-         "offer. An Elabe poll has Le Pen winning 68.5 to 31.5.",
+         "Faure regrets the Greens' offer. An Elabe poll has Le Pen "
+         "winning 68.5 to 31.5.",
          "REPORTED", GREEN, "poll"),
         ("JAKARTA · LAW", "Indonesia passes asset-seizure law",
          "After an 18-year wait, the state may seize assets of Rp1bn or "
-         "more without a conviction.",
+         "more, no conviction.",
          "REPORTED", GREEN, "gavel"),
         ("BOGOTÁ · LABOUR", "Colombia's unions hold a national strike",
          "Teachers and workers march in Bogotá, Medellín and Cali against "
-         "the economic rescue bill.",
+         "the rescue bill.",
          "REPORTED", GREEN, "crowd"),
         ("CANBERRA · ECONOMY", "Australian jobless rate jumps to 4.9%",
-         "A five-year high, up from 4.7%. The economy lost 43,500 jobs, "
-         "a gain of 25,000 was forecast.",
+         "A five-year high, up from 4.7%. Lost 43,500 jobs; 25,000 were "
+         "forecast.",
          "REPORTED", GREEN, "chart"),
     ]
     cw = (CW - 18) / 4
-    ch = 108
+    ch = 114
     for i, (kicker, head, body, lbl, lblc, icon) in enumerate(minis):
         x = M + (i % 4) * (cw + 6)
         y = y0 + (i // 4) * (ch + 6)
         card(d, x, y, cw, ch)
         num_badge(d, x - 4, y - 8, i + 4)
-        draw_icon(d, x + 6, y + 4, cw - 12, 26, icon)
-        ty = y + 32
-        d.text((x + 6, ty), kicker, font=SANS_B(7), fill=GREY)
+        ty = y + 6
+        d.text((x + 6, ty), kicker, font=SANS_B(8), fill=GREY)
         tag(d, x + cw - 52, ty - 1, lbl, lblc)
-        ty += 12
-        ty = para(d, x + 6, ty, cw - 12, head, SERIF(10.5), INK, leading=12)
-        para(d, x + 6, ty + 1, cw - 12, body, SANS(7.5), INK, leading=9.5)
+        ty += 11
+        ty = para(d, x + 6, ty, cw - 12, head, SERIF(17), INK, leading=20)
+        para(d, x + 6, ty + 2, cw - 12, body, SANS(15), INK, leading=17)
     return y0 + 3 * ch + 12
 
 
@@ -464,22 +462,22 @@ def draw_icon(d, x, y, w, h, kind):
 def bottom_band(d, M, CW, y0):
     """Map | also-on-this-page | verdict / how sure / markets."""
     y1 = y0
-    h = 148
+    h = 168
     colw = (CW - 12) / 3
     # --- map ---
     x = M
     card(d, x, y1, colw, h)
-    d.text((x + 6, y1 + 4), "WHERE IT HAPPENED", font=SANS_B(9), fill=INK)
+    d.text((x + 6, y1 + 4), "WHERE IT HAPPENED", font=SANS_B(10), fill=INK)
     mx, my, mw, mh = x + 6, y1 + 18, colw - 12, h - 24
     d.rectangle([mx, my, mx + mw, my + mh], fill=(228, 216, 178))
     # simplified continents
-    d.ellipse([mx + 8, my + 14, mx + 78, my + 52], fill=(196, 178, 120))
-    d.ellipse([mx + 88, my + 26, mx + 150, my + 66], fill=(196, 178, 120))
-    d.ellipse([mx + 150, my + 10, mx + 205, my + 46], fill=(196, 178, 120))
-    d.ellipse([mx + 60, my + 62, mx + 120, my + 92], fill=(196, 178, 120))
-    d.ellipse([mx + 205, my + 62, mx + 235, my + 92], fill=(196, 178, 120))
-    dots = [(30, 30), (60, 26), (95, 34), (120, 30), (150, 28), (175, 22),
-            (100, 55), (130, 60), (160, 55), (215, 40), (75, 75), (200, 80)]
+    d.ellipse([mx + 8, my + 38, mx + 78, my + 76], fill=(196, 178, 120))
+    d.ellipse([mx + 88, my + 50, mx + 150, my + 90], fill=(196, 178, 120))
+    d.ellipse([mx + 150, my + 34, mx + 205, my + 70], fill=(196, 178, 120))
+    d.ellipse([mx + 60, my + 86, mx + 120, my + 116], fill=(196, 178, 120))
+    d.ellipse([mx + 205, my + 86, mx + 235, my + 116], fill=(196, 178, 120))
+    dots = [(30, 54), (60, 50), (95, 58), (120, 54), (150, 52), (175, 46),
+            (100, 79), (130, 84), (160, 79), (215, 64), (75, 99), (200, 104)]
     for i, (dx, dy) in enumerate(dots):
         px, py = mx + dx, my + dy
         d.ellipse([px - 5, py - 5, px + 5, py + 5], fill=RED,
@@ -489,105 +487,90 @@ def bottom_band(d, M, CW, y0):
     # --- also on this page ---
     x = M + colw + 6
     card(d, x, y1, colw, h)
-    d.text((x + 6, y1 + 4), "ALSO ON THIS PAGE", font=SANS_B(9), fill=INK)
+    d.text((x + 6, y1 + 4), "ALSO ON THIS PAGE", font=SANS_B(10), fill=INK)
     items = [
-        ("KYIV", "Zelenskyy in Berlin for talks with US envoys."),
-        ("SHENZHEN", "Xi pledges $20bn for APEC projects and a study centre."),
-        ("SHENZHEN", "Trump and Xi agree a flow deal through Hormuz."),
-        ("PARIS", "IEA: Hormuz crisis is the largest energy-security threat in history."),
-        ("DHAKA", "Awami League shutdown shuts parts of Bangladesh; police report two killed."),
-        ("SANAA", "Houthi media report Saudi air strikes on Yemen's capital before dawn."),
-        ("RIYADH", "Crown prince meets the chief of US Central Command."),
-        ("KENYA", "Marathon champion Peres Jepchirchir banned three years for doping."),
-        ("OTTAWA", "Canada sets out its China deal: tariff relief on pork, seafood."),
-        ("SEOUL", "Eleven inmates sit the exam in a prison school."),
-        ("SYDNEY", "Markets now price a rate cut for mid-2027; RBA at 4.85%."),
-        ("BOGOTÁ", "Strike goes ahead though VAT on staple food was dropped."),
-        ("ANTALYA", "COP31 is due to close on Friday."),
-        ("ODISHA", "74 rescue teams deployed; schools shut before the cyclone."),
-        ("SENEGAL", "Search resumes for dozens missing after a migrant boat capsized."),
-        ("JAKARTA", "New law creates two agencies to manage seized assets."),
-        ("THE HAGUE", "A first: the court has never held a state responsible for genocide."),
-        ("AUCKLAND", "New Zealand players are first into GTA VI at midnight."),
+        ("KYIV", "Zelenskyy in Berlin for talks."),
+        ("SHENZHEN", "Xi pledges $20bn for APEC."),
+        ("PARIS", "IEA: Hormuz is top energy threat."),
+        ("DHAKA", "League shutdown; two killed."),
+        ("SANAA", "Saudi strikes hit the capital."),
+        ("RIYADH", "Prince meets US general."),
+        ("KENYA", "Jepchirchir banned 3 years."),
+        ("OTTAWA", "China deal: pork tariff relief."),
+        ("SYDNEY", "Rate cut priced for mid-2027."),
+        ("BOGOTÁ", "Strike goes on; VAT dropped."),
     ]
     yy = y1 + 18
-    for city, txt in items[:15]:
-        d.text((x + 6, yy), city, font=SANS_B(6), fill=RED)
-        # keep each item on one line: trim words until it fits
-        f = SANS(6)
-        while d.textlength(txt, font=f) > colw - 70 and " " in txt:
+    for city, txt in items:
+        d.text((x + 6, yy), city, font=SANS_B(13), fill=RED)
+        tx = x + 6 + d.textlength(city, font=SANS_B(13)) + 8
+        f = SANS(13)
+        while d.textlength("— " + txt, font=f) > x + colw - 6 - tx and " " in txt:
             txt = txt.rsplit(" ", 1)[0] + "…"
-        d.text((x + 62, yy), txt, font=f, fill=INK)
-        yy += 8
-        if yy > y1 + h - 8:
-            break
+        d.text((tx, yy), "— " + txt, font=f, fill=INK)
+        yy += 15
     # --- verdict / how sure / markets ---
     x = M + 2 * (colw + 6)
     card(d, x, y1, colw, h, fill=NAVY)
-    d.text((x + 6, y1 + 4), "THE VERDICT", font=SANS_B(9), fill=(255, 255, 255))
+    d.text((x + 6, y1 + 4), "THE VERDICT", font=SANS_B(10), fill=(255, 255, 255))
     _vt = "THE HAGUE · 10:00"
-    d.text((x + colw - 6 - d.textlength(_vt, font=SANS_B(7)), y1 + 5), _vt,
-           font=SANS_B(7), fill=(180, 200, 230))
+    d.text((x + colw - 6 - d.textlength(_vt, font=SANS_B(8)), y1 + 5), _vt,
+           font=SANS_B(8), fill=(180, 200, 230))
     yy = para(d, x + 6, y1 + 18, colw - 12,
               "Myanmar committed genocide, 9 to 6 — first state the court "
               "holds liable. Must allow return and pay reparations.",
-              SERIF(10.5), (255, 255, 255), leading=12)
+              SERIF(12.5), (255, 255, 255), leading=15)
     hline(d, x + 6, yy + 3, x + colw - 6, 1, fill=(120, 150, 200))
     yy += 8
-    d.text((x + 6, yy), "HOW SURE ARE WE?", font=SANS_B(8),
+    d.text((x + 6, yy), "HOW SURE ARE WE?", font=SANS_B(9),
            fill=(255, 255, 255))
-    yy += 11
+    yy += 12
     for lbl, txt, col in [("REPORTED", "confirmed by named sources", GREEN),
                           ("CLAIM", "one side says; unverified", GOLD),
                           ("FORECAST", "poll, draft or schedule", ORANGE)]:
         tag(d, x + 6, yy, lbl, col)
-        d.text((x + 62, yy + 1), txt, font=SANS(7.5), fill=(220, 225, 240))
-        yy += 10
+        d.text((x + 62, yy + 1), txt, font=SANS(9.5), fill=(220, 225, 240))
+        yy += 11
     hline(d, x + 6, yy + 1, x + colw - 6, 1, fill=(120, 150, 200))
     yy += 6
-    d.text((x + 6, yy), "MARKETS & MONEY", font=SANS_B(8),
+    d.text((x + 6, yy), "MARKETS & MONEY", font=SANS_B(9),
            fill=(255, 255, 255))
-    yy += 10
+    yy += 11
     for a, b in [("ANT  $83", "IPO price, set Wed"),
                  ("$81.3bn", "largest IPO on record"),
                  ("JOBLESS  4.9%", "up from 4.7%")]:
-        d.text((x + 6, yy), a, font=SANS_B(7.5), fill=(255, 255, 255))
-        d.text((x + colw - 6 - d.textlength(b, font=SANS(7.5)), yy), b,
-               font=SANS(7.5), fill=(200, 210, 235))
-        yy += 9
+        d.text((x + 6, yy), a, font=SANS_B(9.5), fill=(255, 255, 255))
+        d.text((x + colw - 6 - d.textlength(b, font=SANS(9.5)), yy), b,
+               font=SANS(9.5), fill=(200, 210, 235))
+        yy += 10
     return y1 + h
 
 
 def date_check(d, M, CW, y0):
     y = y0 + 6
-    d.rectangle([M, y, M + CW, y + 48], fill=(255, 255, 255), outline=RED,
+    d.rectangle([M, y, M + CW, y + 52], fill=(255, 255, 255), outline=RED,
                 width=1)
-    d.text((M + 6, y + 3), "DATE CHECK", font=SANS_B(9), fill=RED)
-    d.text((M + 74, y + 3),
+    d.text((M + 6, y + 3), "DATE CHECK", font=SANS_B(11), fill=RED)
+    d.text((M + 92, y + 3),
            "In the headlines today, but NOT Thursday's news, so left off "
-           "this page:", font=SANS_B(8), fill=INK)
+           "this page:", font=SANS_B(10), fill=INK)
     txt = ("Anthropic's $83 pricing (Wed 18) · Israel's Gaza push (Wed 18) · "
-           "Greens' offer to Mélenchon (Wed 18) · Florida's 15.3-inch deluge "
-           "(Tue-Wed) · Voyager 1 one light-day out (Wed 18) · Van Gogh sold "
-           "for $190.4m (Wed 18) · EU €45bn loan plan for Ukraine (Wed 18) · "
-           "EU 'missing billions' trade (Wed 4 Nov) · İmamoğlu sentenced "
-           "(Wed 18) · Australia's settler sanctions (Wed 18) · IAEA on North "
-           "Korea's Yongbyon (Wed 18) · Iran-Gulf strikes, Qeshm (Tue-Wed) · "
-           "Siberia An-12 crash, 19 dead (Tue 17) · Deutsche Bank-Epstein "
-           "files (Tue 17) · Nature's 'missing billions' trade (Wed 4 Nov)")
-    para(d, M + 6, y + 15, CW - 12, txt, SANS(7), INK, leading=9)
+           "Greens' offer to Mélenchon (Wed 18) · Voyager 1 one light-day "
+           "out (Wed 18) · Van Gogh sold for $190.4m (Wed 18) · EU €45bn "
+           "Ukraine loan (Wed 18) · İmamoğlu sentenced (Wed 18)")
+    para(d, M + 6, y + 16, CW - 12, txt, SANS(14), INK, leading=17)
 
 
 def build():
     img, d, M, CW = main()
-    y = mini_cards(d, M, CW, 438)
+    y = mini_cards(d, M, CW, 416)
     y = bottom_band(d, M, CW, y + 4)
     date_check(d, M, CW, y)
     d.text((M, 1008), "Every story on this page happened, or was first "
            "reported, on Thursday 19 November 2026. Disputed claims are "
-           "attributed, not stated as fact. Times are local. Drawn from "
-           "reporting by Reuters, AP, BBC, Al Jazeera, Xinhua, Yonhap, "
-           "Antara, ABS and the ICJ.", font=SANS(7), fill=GREY)
+           "attributed, not stated as fact. Times are local. Sources: "
+           "Reuters, AP, BBC, Al Jazeera, Xinhua, Yonhap, Antara, ABS, ICJ.",
+           font=SANS(8), fill=GREY)
     img.save(OUT, format="PNG", optimize=True)
     data = open(OUT, "rb").read()
     print("wrote", OUT, len(data), "bytes")

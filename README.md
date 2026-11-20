@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/news-image-20261119/andryrohul/news-image-20261119/rank.svg)](https://make.fun/bounty/news-image-20261119/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
 [![reward](https://make.fun/badge/news-image-20261119/andryrohul/news-image-20261119/reward.svg)](https://make.fun/bounty/news-image-20261119?utm_source=github&utm_medium=readme&utm_campaign=news-image-20261119)
 
-A one-page newspaper front page that sums up Thursday 19 November 2026 in 30 stories from 6 regions: the first-ever Trump–Xi–Putin trilateral in Shenzhen, the World Court's 9–6 genocide ruling on Myanmar, GTA VI's release after 13 years, and Anthropic's record $81.3bn IPO, plus a day-by-hours strip, a world map, a verdict box and a date check that keeps pre-Thursday stories off the page. Every figure was checked against reporting from Reuters, AP, CNN, Yonhap, the ABS and the ICJ.
+A one-page newspaper front page that sums up Thursday 19 November 2026 in 25 stories from 6 regions: the first-ever Trump–Xi–Putin trilateral in Shenzhen, the World Court's 9–6 genocide ruling on Myanmar, GTA VI's release after 13 years, and Anthropic's record $81.3bn IPO, plus a day-by-hours strip, a world map, a verdict box and a date check that keeps pre-Thursday stories off the page. Every figure was checked against reporting from Reuters, AP, CNN, Yonhap, the ABS and the ICJ.
 
 ## Run it
 

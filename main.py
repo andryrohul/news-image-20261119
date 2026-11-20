@@ -5,13 +5,22 @@ world news of Thursday 19 November 2026, verified against reporting
 from Reuters, AP, CNN, Yonhap, ABS and the ICJ on 19-20 Nov 2026.
 Stdlib + Pillow only. Deterministic: no time, random or network use.
 Run:  python3 main.py   -> writes entry.png next to this file.
+Grader run: the grader sets MAKEFUN_OUTPUT_DIR=/output and mounts this
+repository read-only, so with that variable set the image is written to
+$MAKEFUN_OUTPUT_DIR/entry.png instead (writing beside this file there
+fails with PermissionError and the graded run exits 1).
 """
 import hashlib
 import os
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1024, 1024
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "entry.png")
+HERE = os.path.dirname(os.path.abspath(__file__))
+# The grader's repository is read-only (/bot) and its writable output is
+# /output, named by MAKEFUN_OUTPUT_DIR in its environment: write the image
+# there when the variable is set, beside this file otherwise (local runs).
+OUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR") or HERE
+OUT = os.path.join(OUT_DIR, "entry.png")
 
 CREAM = (245, 236, 214)
 PAPER = (250, 243, 226)
